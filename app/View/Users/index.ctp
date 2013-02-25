@@ -5,6 +5,12 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('nom'); ?></th>
 			<th><?php echo $this->Paginator->sort('prenom'); ?></th>
+			<th><?php echo $this->Paginator->sort('naissance'); ?></th>
+			
+			<th><?php echo $this->Paginator->sort('username'); ?></th>
+			<th><?php echo $this->Paginator->sort('password'); ?></th>
+			
+			
 			<th><?php echo $this->Paginator->sort('style'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
@@ -16,6 +22,13 @@
 		<td><?php echo h($user['User']['id']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['nom']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['prenom']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['naissance']); ?>&nbsp;</td>
+		
+		
+		<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['password']); ?>&nbsp;</td>
+		
+		
 		<td><?php echo h($user['User']['style']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['description']); ?>&nbsp;</td>
 
@@ -52,6 +65,5 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Groups'), array('controller' => 'groups', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Group'), array('controller' => 'groups', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

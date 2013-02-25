@@ -6,6 +6,9 @@
 		echo $this->Form->input('nom');
 		echo $this->Form->input('prenom');
 		echo $this->Form->input('naissance');
+		echo $this->Form->input('username');
+		echo $this->Form->input('password');
+		echo $this->Form->input('email');
 		echo $this->Form->input('style');
 		echo $this->Form->input('description');
 		echo $this->Form->input('photo');

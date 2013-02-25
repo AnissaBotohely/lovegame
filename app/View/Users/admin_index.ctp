@@ -6,6 +6,9 @@
 			<th><?php echo $this->Paginator->sort('nom'); ?></th>
 			<th><?php echo $this->Paginator->sort('prenom'); ?></th>
 			<th><?php echo $this->Paginator->sort('naissance'); ?></th>
+			<th><?php echo $this->Paginator->sort('username'); ?></th>
+			<th><?php echo $this->Paginator->sort('password'); ?></th>
+			<th><?php echo $this->Paginator->sort('email'); ?></th>
 			<th><?php echo $this->Paginator->sort('style'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
 			<th><?php echo $this->Paginator->sort('photo'); ?></th>
@@ -23,6 +26,9 @@
 		<td><?php echo h($user['User']['nom']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['prenom']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['naissance']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['password']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['email']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['style']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['description']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['photo']); ?>&nbsp;</td>

@@ -7,6 +7,21 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
+	public function login() {
+	    if ($this->request->is('post')) {
+	        if ($this->Auth->login()) {
+	            $this->redirect($this->Auth->redirect());
+	        } else {
+	            $this->Session->setFlash(__('Invalid username or password, try again'));
+	        }
+	    }
+	}
+
+	public function logout() {
+	    $this->redirect($this->Auth->logout());
+	}
+	
+
 /**
  * index method
  *
@@ -73,8 +88,6 @@ class UsersController extends AppController {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 			$this->request->data = $this->User->find('first', $options);
 		}
-		$groups = $this->User->Group->find('list');
-		$this->set(compact('groups'));
 	}
 
 /**
