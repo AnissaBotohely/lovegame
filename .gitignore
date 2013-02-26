@@ -1,7 +1,9 @@
-/app/Config
-/app/tmp
-/lib/Cake/Console/Templates/skel/tmp/
-/plugins
+/app/tmp/cache/*
+/app/tmp/logs/*
+/app/tmp/sessions/*
+/app/tmp/tests/*
+/lib/Cake/Console/Templates/skel/tmp/*
+/plugins/*
 /vendors
 /build
 /dist
