@@ -6,7 +6,29 @@ App::uses('AppController', 'Controller');
  * @property User $User
  */
 class UsersController extends AppController {
+	
 
+	public function isAuthorized($user){
+		//if ($this->action== 'login' ||$this->action == 'logout') {
+		if (in_array($this->action,array('login','logout'))) {
+			return true;
+		}
+
+		if ($this->action == 'edit') {
+			$user_id = $this->request->params['pass'][0];
+			$me_id = $this->Auth->user('id');
+			if ($me_id == $user_id) {
+				return true;
+			}else{
+				$this->Session->setFlash('try harder');
+			}
+		}
+
+		if ($this->action== 'delete') {	
+			return false;
+		}
+		return parent::isAuthorized($user);
+	}
 	public function login() {
 	    if ($this->request->is('post')) {
 	        if ($this->Auth->login()) {

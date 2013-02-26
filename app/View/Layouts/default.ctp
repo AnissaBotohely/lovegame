@@ -40,15 +40,26 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<div id="container">
 		<div id="header">
 			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+		</div>
+		<div id="content">
+			<?php echo $me['username']?>
+			<?php if ($me['id']>0): ?> 
+				<div class="login">
+					<?php echo $this->html->link('Logout','/users/logout') ?>
+				</div>
+			<?php else: ?>
+				<div class="logout">
+					<?php echo $this->html->link('Login','/users/login') ?>
+				</div>
+			<?php endif; ?>
 				<div class="new-user">
 			<?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?>
 				</div>
-		</div>
-		<div id="content">
-
+			
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>
+			
 		</div>
 		<div id="footer">
 			<?php echo $this->Html->link(
