@@ -19,7 +19,7 @@ class UsersController extends AppController {
 	}
 	
 	public function isAuthorized($user){
-		if($this->action == 'delete' && $user['id'] ==1) {
+		if($this->action == 'delete' && $user['group_id'] ==1) {
 			return true;
 		}
 		
@@ -27,7 +27,7 @@ class UsersController extends AppController {
 			return true;
 		}
 		
-		if($this->action == 'logout' && $user['id'] ==1) {
+		if($this->action == 'logout' && $user['group_id'] ==1) {
 			return true;
 		}
 		
