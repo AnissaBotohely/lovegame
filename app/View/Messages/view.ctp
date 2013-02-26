@@ -13,16 +13,19 @@
 			
 			
 	</tr>
-	<?php echo $messages['Message'][0]; ?>
 	<?php foreach ($messages as $message): ?>
 
 	<tr>
 		<?php if ($message['Message']['dest_id']==$me['id']): ?>
-			<td><?php echo h($message['Message']['id']); ?>&nbsp;</td>
+		<?php if (isset($message['Message']['exp_id'])): ?>
+			
+		<?php endif ?>
+		<td><?php echo h($message['Message']['id']); ?>&nbsp;</td>
 		<td><?php echo h($message['Message']['exp_id']); ?>&nbsp;</td>
 		<td><?php echo h($message['Message']['contenu']); ?>&nbsp;</td>
 		<td><?php echo h($message['Message']['date']); ?>&nbsp;</td>
-		
+		debug($messages);
+		<?php //echo $message[] ?>
 		
 		<td class="actions">
 			<?php echo $this->Html->link(__('Répondre'), array('action' => 'add', $message['Message']['id'])); ?>

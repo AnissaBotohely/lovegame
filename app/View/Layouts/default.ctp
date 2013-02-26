@@ -45,6 +45,7 @@
 			<?php if ($me['id']>0): ?> 
 				<div class="login">
 					<?php echo $this->html->link('Deconnexion','/users/logout') ?>
+					<?php echo $this->html->link('Messages','/messages') ?>
 				</div>
 			<?php else: ?>
 				<div class="logout">
@@ -54,6 +55,7 @@
 				<div class="new-user">
 			<?php echo $this->Html->link(__('Inscription'), array('controller' => 'users', 'action' => 'add')); ?>
 				</div>
+
 			
 		</div>
 		<div id="content">

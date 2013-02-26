@@ -22,8 +22,9 @@ class MessagesController extends AppController {
 			$this->Message->create();
 			//$this->request->data['Message']['dest_id']=$this->request->data['User']['group_id'];
 			$this->request->data['Message']['exp_id']=$this->Auth->user('id');
-			debug($this->request->data());
-			die();
+			$this->request->data['Message']['dest_id']=substr ($this->here,23);
+			//debug($this->request->data());
+			//die();
 			if ($this->Message->save($this->request->data)) {
 				$this->Session->setFlash(__('Votre message a bien été envoyé'));
 				$this->redirect(array('action' => 'index'));
@@ -32,6 +33,10 @@ class MessagesController extends AppController {
 			}
 		}
 		
+	}
+
+	public function view(){
+
 	}
 
 /**
