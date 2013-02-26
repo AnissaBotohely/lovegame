@@ -6,14 +6,16 @@ App::uses('AppController', 'Controller');
  * @property User $User
  */
 class UsersController extends AppController {
+
+	/**
+	* beforeFilter
+	*
+	* @author elyany
+	**/
 	
 	public function beforeFilter(){
-/**
-* beforeFilter
-*
-* @author gasp
-**/
-	parent::beforeFilter();
+
+		parent::beforeFilter();
 		$this->Auth->allow('add');
 		$this->Auth->allow('logout');
 	}
@@ -33,7 +35,7 @@ class UsersController extends AppController {
 		
 		if($this->action == 'edit'){
 			//users/edit/6 id is 6
-			$id = $this->request->params['password'][0];
+			$id = $this->request->params['pass'][0];
 			if(isset($user['id']) && $user['id'] == $id){
 				return true;
 			}
@@ -48,7 +50,7 @@ class UsersController extends AppController {
 	/**
 	* login and logout
 	*
-	* @author gasp
+	* @author lovegame
 	**/
 
 	public function login(){
@@ -101,7 +103,7 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
 			$this->User->create();
 			
-			
+		$this->request->data['User']['group_id']=2;	
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(__('The user has been saved'));
 				$this->redirect(array('action' => 'index'));

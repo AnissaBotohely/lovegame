@@ -35,8 +35,8 @@ class AppController extends Controller {
 	public $components = array(
 			'Session',
 			'Auth' => array(
-				'loginRedirect' => array('controller' => 'messages', 'action'=>'index'),
-				'logoutRedirect' => array('controller' => 'messages', 'action'=>'index'),
+				'loginRedirect' => array('controller' => 'pages', 'action'=>'home'),
+				'logoutRedirect' => array('controller' => 'pages', 'action'=>'home'),
 				'authorize' => array('Controller')
 			)
 		);
@@ -59,7 +59,7 @@ class AppController extends Controller {
 		*/
 		public function isAuthorized($user)
 		{
-			if ($user['orientation_id'] && $user['orientation_id']==1) {
+			if ($user['group_id'] && $user['group_id']==1) {
 				return true;	
 			}
 

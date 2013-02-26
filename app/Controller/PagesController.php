@@ -45,6 +45,16 @@ class PagesController extends AppController {
  */
 	public $uses = array();
 
+
+	public function beforeFilter(){
+
+		parent::beforeFilter();
+		$this->Auth->allow('display');
+	}
+	
+	public function isAuthorized($user){
+		return true;
+	}
 /**
  * Displays a view
  *
