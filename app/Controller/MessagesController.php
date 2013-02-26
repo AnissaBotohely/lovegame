@@ -12,10 +12,27 @@ class MessagesController extends AppController {
 	}
 	
 	public function index() {
-		
+		$this->Message->recursive = 0;
+		$this->set('messages', $this->paginate());
 	}
 	
-	
+	public function add() {
+
+		if ($this->request->is('post')) {
+			$this->Message->create();
+			//$this->request->data['Message']['dest_id']=$this->request->data['User']['group_id'];
+			$this->request->data['Message']['exp_id']=$this->Auth->user('id');
+			debug($this->request->data());
+			die();
+			if ($this->Message->save($this->request->data)) {
+				$this->Session->setFlash(__('Votre message a bien été envoyé'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('Erreur. Veuillez, réessayer.'));
+			}
+		}
+		
+	}
 
 /**
  * admin_index method
