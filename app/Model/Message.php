@@ -3,7 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Message Model
  *
- * @property User $User
+ * @property Exp $Exp
  */
 class Message extends AppModel {
 
@@ -11,24 +11,24 @@ class Message extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
- * hasMany associations
+ * belongsTo associations
  *
  * @var array
  */
-	public $hasMany = array(
-		'User' => array(
-			'className' => 'User',
-			'foreignKey' => 'message_id',
-			'dependent' => false,
+	public $belongsTo = array(
+		'Exp' => array(
+			'className' => 'Exp',
+			'foreignKey' => 'exp_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
+			'order' => ''
+		),
+		'dest' => array(
+			'className' => 'dest',
+			'foreignKey' => 'dest_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
-
 }

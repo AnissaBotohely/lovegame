@@ -6,6 +6,16 @@ App::uses('AppController', 'Controller');
  * @property Message $Message
  */
 class MessagesController extends AppController {
+	
+	public function isAuthorized($user){
+		return true
+	}
+	
+	public function index() {
+		// nada
+	}
+	
+	
 
 /**
  * admin_index method

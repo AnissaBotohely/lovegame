@@ -41,6 +41,7 @@
 			<h1>lovegame</h1>
 		</div>
 		<div id="content">
+			<?php debug($me); ?>
 			<?php echo $me['username']?>
 			<?php if ($me['id']>0): ?> 
 				<div class="login">
@@ -62,7 +63,7 @@
 		</div>
 		<div id="footer">
 			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
+					$this->Html->image('cake.power.gif', array('alt' => 'lovegame', 'border' => '0')),
 					'http://www.cakephp.org/',
 					array('target' => '_blank', 'escape' => false)
 				);

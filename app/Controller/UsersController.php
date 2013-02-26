@@ -7,43 +7,66 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 	
-
+	public function beforeFilter(){
+/**
+* beforeFilter
+*
+* @author gasp
+**/
+	parent::beforeFilter();
+		$this->Auth->allow('add');
+		$this->Auth->allow('logout');
+	}
+	
 	public function isAuthorized($user){
-		//if ($this->action== 'login' ||$this->action == 'logout') {
-		if (in_array($this->action,array('login','logout'))) {
+		if($this->action == 'delete' && $user['id'] ==1) {
 			return true;
 		}
-
-		if ($this->action == 'edit') {
-			$user_id = $this->request->params['pass'][0];
-			$me_id = $this->Auth->user('id');
-			if ($me_id == $user_id) {
-				return true;
-			}else{
-				$this->Session->setFlash('try harder');
-			}
+		
+		if($this->action == 'login' && $user['group_id'] ==1) {
+			return true;
 		}
-
-		if ($this->action== 'delete') {	
-			return false;
+		
+		if($this->action == 'logout' && $user['id'] ==1) {
+			return true;
+		}
+		
+		if($this->action == 'edit'){
+			//users/edit/6 id is 6
+			$id = $this->request->params['pass'][0];
+			if(isset($user['id']) && $user['id'] == $id){
+				return true;
+			}
+			else {
+				$this->Session->setFlash('access denied');
+				return false;
+			}
 		}
 		return parent::isAuthorized($user);
 	}
-	public function login() {
-	    if ($this->request->is('post')) {
-	        if ($this->Auth->login()) {
-	            $this->redirect($this->Auth->redirect());
-	        } else {
-	            $this->Session->setFlash(__('Invalid username or password, try again'));
-	        }
-	    }
-	}
+	
+	/**
+	* login and logout
+	*
+	* @author gasp
+	**/
 
-	public function logout() {
-	    $this->redirect($this->Auth->logout());
+	public function login(){
+		if($this->request->is('post')) {
+			if ($this->Auth->login()) {
+				$this->redirect($this->Auth->redirect());
+			}
+			else {
+				$this->Session->setFlash(__('Invalid username or password'));
+			}
+		}
 	}
 	
-
+	public function logout(){
+		$this->Auth->logout();
+		$this->Session->setFlash("Vous êtes maintenant déconnecté");
+		$this->redirect('/');
+	}
 /**
  * index method
  *
