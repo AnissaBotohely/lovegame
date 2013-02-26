@@ -33,7 +33,7 @@ class UsersController extends AppController {
 		
 		if($this->action == 'edit'){
 			//users/edit/6 id is 6
-			$id = $this->request->params['pass'][0];
+			$id = $this->request->params['password'][0];
 			if(isset($user['id']) && $user['id'] == $id){
 				return true;
 			}
