@@ -111,6 +111,11 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		}
+		$orientations = $this->User->Orientation->find('list');
+		$this->set(compact('orientations'));
+		
+		$genres = $this->User->Genre->find('list');
+		$this->set(compact('genres'));
 	}
 
 /**

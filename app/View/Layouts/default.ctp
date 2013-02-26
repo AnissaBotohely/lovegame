@@ -39,22 +39,24 @@
 	<div id="container">
 		<div id="header">
 			<h1>lovegame</h1>
-		</div>
-		<div id="content">
-			<?php debug($me); ?>
-			<?php echo $me['username']?>
+			<div class="username">
+				<?php echo $me['username']?>
+			</div>
 			<?php if ($me['id']>0): ?> 
 				<div class="login">
-					<?php echo $this->html->link('Logout','/users/logout') ?>
+					<?php echo $this->html->link('Deconnexion','/users/logout') ?>
 				</div>
 			<?php else: ?>
 				<div class="logout">
-					<?php echo $this->html->link('Login','/users/login') ?>
+					<?php echo $this->html->link('Connexion','/users/login') ?>
 				</div>
 			<?php endif; ?>
 				<div class="new-user">
-			<?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?>
+			<?php echo $this->Html->link(__('Inscription'), array('controller' => 'users', 'action' => 'add')); ?>
 				</div>
+			
+		</div>
+		<div id="content">
 			
 			<?php echo $this->Session->flash(); ?>
 
@@ -63,7 +65,7 @@
 		</div>
 		<div id="footer">
 			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => 'lovegame', 'border' => '0')),
+					$this->Html->image('cake.power.gif', array('alt' => 'Lovegame', 'border' => '0')),
 					'http://www.cakephp.org/',
 					array('target' => '_blank', 'escape' => false)
 				);
