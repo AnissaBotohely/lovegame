@@ -5,10 +5,9 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'port' => 8889,
-		'login' => 'root',
-		'password' => 'root',
-		'database' => 'cakebake',
+		'login' => 'lovegame',
+		'password' => 'lovegame',
+		'database' => 'lovegame',
 		'encoding' => 'UTF8'
 	);
 }
