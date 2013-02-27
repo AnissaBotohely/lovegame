@@ -11,11 +11,71 @@ class MessagesController extends AppController {
 		return true;
 	}
 	
+
+	public function discussion($id) {
+		$connectedid = $this->Auth->user('id');
+		// je suis l4utilisqteur 1
+
+		$this->Message->recursive = 0;
+		//$this->set('messages', $this->paginate(array('Message.user_id'=>$id,array(
+		//'conditions' => array('Message.user_receiver_id'=> $connectedid)))));
+
+
+
+		// OR AND CONDITION VARIABLE
+		$orcondition = $this->Message->find('all',array(
+			'conditions' => array('OR' => array(
+					array('AND' => array(
+										array('dest_id'=> $id),
+										array('exp_id'=> $connectedid)
+										)
+			),
+					array('AND' => array(
+										array('dest_id'=> $connectedid),
+										array('exp_id'=> $id)
+										)
+						)
+					)),
+		'order' => array('date ASC')
+		) );
+
+		$this->set('messages', $orcondition);
+
+
+		//debug($orcondition);
+		//$this->render("index");
+	}
+	public function inbox(){
+
+			$connectedid = $this->Auth->user('id');
+			$this->Message->recursive = 0;
+			/*
+			$data = $this->Message->find('all');
+			$this->set('messages', $data); */
+
+			$data = $this->Message->find('all',array(
+			'conditions' => array('OR' => array(
+			array('dest_id'=> $connectedid),
+			array('exp_id'=> $connectedid)
+			)),
+		//	'group' => array('exp_id','dest_id'),
+			'order' => array('Message.date DESC')
+
+			) );
+
+
+
+			$this->set('messages', $data);
+			/* $d['message'] = current($this->Message->find('all'));
+			$this -> set($d); */
+
+	}
+
 	public function index() {
 		$this->Message->recursive = 0;
 		$this->set('messages', $this->paginate());
 	}
-	
+
 	public function add() {
 
 		if ($this->request->is('post')) {
@@ -31,6 +91,7 @@ class MessagesController extends AppController {
 			} else {
 				$this->Session->setFlash(__('Erreur. Veuillez, réessayer.'));
 			}
+
 		}
 		
 	}
