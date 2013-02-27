@@ -3,18 +3,14 @@
 </div>
 
 <div class="actions">
-	<dl>
-		<dd>
-			<?php echo ($user['User']['username']); ?>&nbsp;
-		</dd>
-		
+	<dl>		
 		<!--Affichage du nombre de coeurs (elyany)-->
+		<div>
+			<img src="<?php echo ($user['User']['photo']); ?>" width="100" height="100" />&nbsp;
+		</div>
 		<div class="nbcoeur">
 			Nombre de coeurs : <?php echo ($user['User']['coeur']); ?>
 		</div>
-		<dd>
-			<img src="<?php echo ($user['User']['photo']); ?>" width="100" height="100" />&nbsp;
-		</dd>
 		
 	<h3><?php echo __('Actions'); ?></h3>
 		<ul>
