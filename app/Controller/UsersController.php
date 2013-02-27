@@ -34,7 +34,6 @@ class UsersController extends AppController {
 		}
 		
 		if($this->action == 'edit'){
-			//users/edit/6 id is 6
 			$id = $this->request->params['pass'][0];
 			if(isset($user['id']) && $user['id'] == $id){
 				return true;
@@ -43,9 +42,11 @@ class UsersController extends AppController {
 				$this->Session->setFlash('access denied');
 				return false;
 			}
-		}
+		}	
 		return parent::isAuthorized($user);
 	}
+	
+	
 	
 	/**
 	* login and logout
@@ -126,7 +127,6 @@ class UsersController extends AppController {
 		
 		$genres = $this->User->Genre->find('list');
 		$this->set(compact('genres'));
-			
 	}
 
 /**

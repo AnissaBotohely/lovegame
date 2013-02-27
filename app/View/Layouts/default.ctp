@@ -70,12 +70,12 @@ author elyany-->
 				<div class="edit_profil">
 					<?php echo $this->html->link('Editer mon profil', array('controller' => 'users', 'action' => 'edit', $me['id']))?>
 				</div>
-					<?php else: ?>
-				<?php endif; ?>	
 				
 				<div class="messagerie">
 					<?php echo $this->html->link('Voir mes messages', array('controller' => 'users', 'action' => 'index'))?>
 				</div>
+			<?php else: ?>
+		<?php endif; ?>	
 		</div>
 		
 	</div>
