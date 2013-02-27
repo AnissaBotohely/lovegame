@@ -11,4 +11,17 @@
 	</dl>
 	<br />
 	<?php } ?>
+
+	<?php echo $this->Form->create('Message'); ?>
+	<fieldset>
+		<legend><?php echo __('Add Message'); ?></legend>
+	<?php
+		//echo $this->Form->input('dest_id');
+		
+		echo $this->Form->input('contenu');
+	?>
+	</fieldset>
+<?php echo $this->Form->end(__('Envoyer')); ?>
+
 </div>
+

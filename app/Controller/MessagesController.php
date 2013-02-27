@@ -44,6 +44,24 @@ class MessagesController extends AppController {
 
 		//debug($orcondition);
 		//$this->render("index");
+
+		if ($this->request->is('post')) {
+			$this->Message->create();
+			//$this->request->data['Message']['dest_id']=$this->request->data['User']['group_id'];
+			$this->request->data['Message']['date']=date('Y-m-d H:i:s');
+			$this->request->data['Message']['exp_id']=$this->Auth->user('id');
+			$this->request->data['Message']['dest_id']=substr ($this->here,30);
+			//debug($this->request->data());
+			//die();
+			if ($this->Message->save($this->request->data)) {
+				$this->Session->setFlash(__('Votre message a bien été envoyé'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('Erreur. Veuillez, réessayer.'));
+			}
+
+		}
+		
 	}
 	public function inbox(){
 
@@ -87,7 +105,7 @@ class MessagesController extends AppController {
 			//die();
 			if ($this->Message->save($this->request->data)) {
 				$this->Session->setFlash(__('Votre message a bien été envoyé'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'inbox'));
 			} else {
 				$this->Session->setFlash(__('Erreur. Veuillez, réessayer.'));
 			}

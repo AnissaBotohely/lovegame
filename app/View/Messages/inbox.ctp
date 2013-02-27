@@ -1,4 +1,4 @@
-<?php debug($messages); ?>
+<?php// debug($messages); ?>
 
 <div class="messages inbox">
 <h1>Inbox</h1>
