@@ -41,7 +41,6 @@
 			<h1>lovegame</h1>
 		</div>
 		<div id="content">
-			<?php debug($me); ?>
 			<?php echo $me['username']?>
 			<?php if ($me['id']>0): ?> 
 				<div class="login">

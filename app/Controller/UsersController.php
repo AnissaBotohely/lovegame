@@ -248,4 +248,34 @@ class UsersController extends AppController {
 		$this->Session->setFlash(__('User was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+	public function search() {
+		$autregenre = $this->Auth->user('genre_id');
+			if($this->Auth->user('genre_id') == 1) {
+				$autregenre = 2;
+			}
+
+			if($this->Auth->user('genre_id') == 2) {
+				$autregenre = 1;
+			} 
+
+		/*array('controller' => 'orientations', 'action' => 'view', $user['Orientation']['id'])); 
+		 $specifiquementCeluiCi = $this->Article->find('first', array(
+        'conditions' => array('Article.id' => 1)
+    ));
+
+if ($user['orientation_id'] && $user['orientation_id']==1) {
+				return true;	
+			}
+		*/
+
+		$user = $this->User->find('all',array(
+			'conditions' => array('genre_id'=>$autregenre)
+		));
+
+
+
+ 		$this->set('users', $user);
+
+	}
+
 }
