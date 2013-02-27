@@ -30,8 +30,34 @@ body {
 	margin: 0;
 }
 
-.username{
+.login{
 	float:right;
+	margin-right:20px;
+}
+
+.logout{
+	float:right;
+	margin-right:20px;
+}
+
+.new-user{
+	float:right;
+}
+
+.username{
+	float:left;
+	margin-right: 4em;
+}
+
+.profil{
+	float:left;
+	margin-right: 4em;
+	
+}
+
+.edit_profil{
+	float:left;
+	margin-right:4em;
 }
 
 a {

@@ -69,6 +69,18 @@ class UsersController extends AppController {
 		$this->Session->setFlash("Vous êtes maintenant déconnecté");
 		$this->redirect('/');
 	}
+	
+/**
+*
+* Redirection menu "mon plateau de jeu" vers la page users/view/id
+* @author elyany
+**/
+
+
+
+
+
+
 /**
  * index method
  *
@@ -140,6 +152,13 @@ class UsersController extends AppController {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 			$this->request->data = $this->User->find('first', $options);
 		}
+		
+		$orientations = $this->User->Orientation->find('list');
+		$this->set(compact('orientations'));
+		
+		$genres = $this->User->Genre->find('list');
+		$this->set(compact('genres'));
+		
 	}
 
 /**
