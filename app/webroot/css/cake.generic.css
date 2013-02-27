@@ -741,3 +741,33 @@ pre {
 #url-rewriting-warning {
 	display:none;
 }
+
+/** Code perso **/
+.profile {
+	float:left;
+	width:16%;
+	padding:10px 1.5%;
+}
+
+.board {
+	float:right;
+	width:76%;
+	border-left:1px solid #666;
+	padding:10px 2%;
+}
+
+#preferences {
+	float:right;
+	width:76%;
+	border-left:1px solid #666;
+	padding:10px 2%;
+}
+
+#cagnotte {
+	float:right;
+
+
+ .coeurs p {
+	text-align:center;
+	color:red;
+}

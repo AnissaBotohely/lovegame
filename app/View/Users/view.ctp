@@ -1,32 +1,68 @@
-<div class="users view">
+<?php $idurl = substr($this->here,21); ?> 
+
+<?php if($me['id']==$idurl): ?>
 
 
 
-<h2><?php  echo __('Loveuses du jour'); ?></h2>
+	 <div class="board">
+
+
+		<h2><?php  echo __('Plateau du jour'); ?></h2>
+
+		
+
+
+		<div class="pretendant">
+		</div>
+	</div>
+
+<?php else: ?>
+
+ 
+
+<div id="preferences">
+
+	
+	<h2>Le profil de <?php echo ($user['User']['username']); ?></h2>
+
+	<p> Sexe : <?php echo ($user['Genre']['name']); ?></p>
+
+	<p> Orientation : <?php echo ($user['Orientation']['type']); ?></p>
+
+
+	<p> Son style : <?php echo ($user['User']['style']); ?></p>
+
+	<p> Sa description : <?php echo ($user['User']['description']); ?></p>
+
+
+
+
 
 </div>
 
+<?php endif; ?>
 
 
 
-<div class="actions">
-<dl>
-	<dd>
-			<?php echo ($user['User']['username']); ?>
-			&nbsp;
-		</dd>
+
+<div class="profile">
 		
-		<dd>
+	
 			<img src="<?php echo ($user['User']['photo']); ?>" width="100" height="100" />
 			&nbsp;
-		</dd>
 
 
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Modifier mon profil'), array('action' => 'edit', $user['User']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Lire mes messages'), array('controller' => 'messages', 'action' => 'index',  $user['User']['id'])); ?> </li>
-		
-	</ul>
-</dl>
+			<div id="cagnotte">
+
+				<img src="http://media1.creavea.com/fichesconseils/medias/9_1_l.jpg" width="50" height="50" />
+
+				<div class="coeurs"><p> <?php echo ($user['User']['coeur']); ?> </p></div>
+
+				
+
+			</div>
+
+			
+
+
 </div>
