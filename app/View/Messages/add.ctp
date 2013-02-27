@@ -2,8 +2,10 @@
 <?php echo $this->Form->create('Message'); ?>
 	<fieldset>
 		<legend><?php echo __('Add Message'); ?></legend>
+
 	<?php
 		//echo $this->Form->input('dest_id');
+		//echo $this->Auth->user('id');
 		
 		echo $this->Form->input('contenu');
 	?>

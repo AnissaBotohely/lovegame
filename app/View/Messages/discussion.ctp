@@ -14,9 +14,9 @@
 
 	<?php echo $this->Form->create('Message'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Message'); ?></legend>
+		<legend><?php echo __("Envoyer un message à ".$message['Dest']['username']); ?></legend>
 	<?php
-		//echo $this->Form->input('dest_id');
+		echo "il vous reste ".$me['coeur']." cœurs";
 		
 		echo $this->Form->input('contenu');
 	?>
