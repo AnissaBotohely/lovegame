@@ -43,9 +43,8 @@
 			<div class="new-user">
 				<?php echo $this->Html->link(__('Inscription'), array('controller' => 'users', 'action' => 'add')); ?>
 			</div>
+			
 				<?php if ($me['id']>0): ?> 
-					
-		
 			<div class="login">
 					<?php echo $this->html->link('Deconnexion','/users/logout') ?>
 			</div>
@@ -59,6 +58,12 @@
 				</div>
 			
 					<?php if ($me['id']>0): ?> 
+						
+						
+						
+<!--Redirection menu "mon plateau de jeu" vers la page users/view/id
+author elyany-->
+						
 				<div class="profil">
 					<?php echo $this->html->link('Mon plateau de jeu', array('controller' => 'users', 'action' => 'view', $me['id'])) ?>
 				</div>

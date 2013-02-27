@@ -70,11 +70,7 @@ class UsersController extends AppController {
 		$this->redirect('/');
 	}
 	
-/**
-*
-* Redirection menu "mon plateau de jeu" vers la page users/view/id
-* @author elyany
-**/
+
 
 
 
@@ -114,6 +110,8 @@ class UsersController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->User->create();
+//ajout de 10 coeurs à l'inscription (elyany)
+			$this->request->data['User']['coeur']=10;
 			
 		$this->request->data['User']['group_id']=2;	
 			if ($this->User->save($this->request->data)) {
@@ -128,6 +126,7 @@ class UsersController extends AppController {
 		
 		$genres = $this->User->Genre->find('list');
 		$this->set(compact('genres'));
+			
 	}
 
 /**
