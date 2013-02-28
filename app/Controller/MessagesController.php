@@ -101,14 +101,14 @@ class MessagesController extends AppController {
 		$this->set('messages', $this->paginate());
 	}
 
-	public function add() {
+	public function add($id) {
 
 		if ($this->request->is('post')) {
 			$this->Message->create();
 			//$this->request->data['Message']['dest_id']=$this->request->data['User']['group_id'];
 			$this->request->data['Message']['date']=date('Y-m-d H:i:s');
 			$this->request->data['Message']['exp_id']=$this->Auth->user('id');
-			$this->request->data['Message']['dest_id']=substr ($this->here,23);
+			$this->request->data['Message']['dest_id']=$id;
 			$this->request->data['Message']['coeur']=$this->Auth->user('coeur')-1;
 			debug($this->request->data());
 			die();
