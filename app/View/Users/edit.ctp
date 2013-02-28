@@ -25,6 +25,8 @@
 
 		<li><?php echo $this->Html->link(__('Modifier mon image'), array('action' => '',)) ; ?> </li>
 
+		
+
 		<li><?php echo $this->Form->postLink(__('Supprimer mon profil'), array('action' => 'delete', $this->Form->value('User.id')), null, __('Etes vous sûr de vouloir supprimer # %s?', $this->Form->value('User.id'))); ?></li>
 	</ul>
 </div>
