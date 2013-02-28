@@ -40,7 +40,9 @@
 		<div id="header">
 			<h1>lovegame</h1>
 			<div class="username">
-				<?php echo $me['username']?>
+				<?php if ($me['id']>0): ?> 
+					<?php echo $this->Html->link($me['username'],array('controller'=>'users','action'=>'view',$me['id'])) ?>
+				<?php endif; ?>
 			</div>
 			<?php if ($me['id']>0): ?> 
 				<div class="login">
