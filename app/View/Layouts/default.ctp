@@ -45,7 +45,7 @@
 			<?php if ($me['id']>0): ?> 
 				<div class="login">
 					<?php echo $this->html->link('Deconnexion','/users/logout') ?>
-					<?php echo $this->html->link('Messages','/messages') ?>
+					<?php echo $this->html->link('Messages','/messages/inbox') ?>
 				</div>
 			<?php else: ?>
 				<div class="logout">

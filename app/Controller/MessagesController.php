@@ -52,13 +52,16 @@ class MessagesController extends AppController {
 			$this->request->data['Message']['exp_id']=$this->Auth->user('id');
 			$this->request->data['Message']['dest_id']=substr ($this->here,30);
 			$this->request->data['User']['coeur']=$orcondition['0']['Exp']['coeur']-1;
+			
 			//$this->request->data['Message']['coeur']=$orcondition['0']['Exp']['coeur']-1;
 			//echo $orcondition['0']['Exp']['coeur'];
-			//debug($this->request->data());
-			//die();
-			if ($this->Message->save($this->request->data)) {
-				$this->Session->setFlash(__('Votre message a bien été envoyé'));
-				$this->redirect(array('action' => 'index'));
+			debug($this->request->data());
+			die();
+			if ($this->Message->saveAssocia($this->request->data)) {
+			
+			$this->Session->setFlash(__('Votre message a bien été envoyé'));
+			$this->redirect(array('action' => 'index'));
+				
 			} else {
 				$this->Session->setFlash(__('Erreur. Veuillez, réessayer.'));
 			}
