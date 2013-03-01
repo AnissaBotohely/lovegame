@@ -38,7 +38,8 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1>lovegame</h1>
+			
+			<h1><?php echo $this->Html->link(__('Lovegame'), array('controller' => 'pages', 'action' => 'home')); ?></h1>
 
 			<div class="new-user">
 				<?php echo $this->Html->link(__('Inscription'), array('controller' => 'users', 'action' => 'add')); ?>
