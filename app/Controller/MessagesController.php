@@ -36,7 +36,7 @@ class MessagesController extends AppController {
 										)
 						)
 					)),
-		'order' => array('date ASC')
+		'order' => array('Message.created ASC')
 		) );
 
 		$this->set('messages', $orcondition);
@@ -47,21 +47,43 @@ class MessagesController extends AppController {
 
 		if ($this->request->is('post')) {
 			$this->Message->create();
-			//$this->request->data['Message']['dest_id']=$this->request->data['User']['group_id'];
-			$this->request->data['Message']['date']=date('Y-m-d H:i:s');
 			$this->request->data['Message']['exp_id']=$this->Auth->user('id');
-			$this->request->data['Message']['dest_id']=substr ($this->here,30);
-			$this->request->data['User']['coeur']=$orcondition['0']['Exp']['coeur']-1;
+			$this->request->data['Message']['dest_id']=$this->request->params['pass'][0];
 			
-			//$this->request->data['Message']['coeur']=$orcondition['0']['Exp']['coeur']-1;
-			//echo $orcondition['0']['Exp']['coeur'];
-			debug($this->request->data());
-			die();
-			if ($this->Message->saveAssocia($this->request->data)) {
+			$this->loadModel('User');
+			$this->User->recursive = -1;
 			
-			$this->Session->setFlash(__('Votre message a bien été envoyé'));
-			$this->redirect(array('action' => 'index'));
-				
+			// suppressing 1 "coeur" from sender
+			$sender = $this->User->find('first', array(
+				'conditions'=>array('User.id'=>$this->Auth->user('id'))
+			));
+
+			$this->User->id = $this->Auth->user('id');
+			$this->User->save(array(
+				'User'=>array(
+					'id'=>$this->Auth->user('id'),
+					'coeur' => ($sender['User']['coeur'] - 1)
+				)
+			));
+
+			//adding 1 "coeur" form dest
+			$dest = $this->User->find('first', array(
+				'conditions'=>array('User.id'=>$this->request->params['pass'][0])
+			));
+
+			$this->User->id = $this->request->params['pass'][0];
+			$this->User->save(array(
+				'User'=>array(
+					'id'=>$this->request->params['pass'][0],
+					'coeur' => ($dest['User']['coeur'] + 1)
+				)
+			));
+
+
+
+			if ($this->Message->save($this->request->data)) {
+				$this->Session->setFlash(__('Votre message a bien été envoyé'));
+				//$this->redirect('messages/inbox/');
 			} else {
 				$this->Session->setFlash(__('Erreur. Veuillez, réessayer.'));
 			}
@@ -82,7 +104,7 @@ class MessagesController extends AppController {
 			array('dest_id'=> $connectedid),
 			array('exp_id'=> $connectedid)
 			)),
-			'order' => array('Message.date ASC'),
+			'order' => array('Message.created ASC'),
 			'group' => array('exp_id','dest_id')
 			
 
