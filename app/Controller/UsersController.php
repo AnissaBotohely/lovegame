@@ -298,6 +298,9 @@ function age() {
 
 	}
 
+	return $age;
+
+
 	$this->set('age', age);
 
 	}
