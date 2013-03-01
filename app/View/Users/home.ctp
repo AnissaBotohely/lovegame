@@ -6,17 +6,14 @@
 		<h2><?php  echo __('Plateau du jour'); ?></h2>
 
 
-		<div class="pretendant">
+		<div id="pretendants">
 			<ul>
 				<?php foreach ($users as $user): ?>
-					<li>
-						<div><?php echo $user['User']['username'];?></div>
-						<div><?php echo $user['User']['style'];?></div>
-						<div><?php echo $user['User']['description'];?></div>
-						<div><?php echo $user['User']['photo'];?></div>
-						<div><?php echo $user['User']['genre_id'];?></div>
-
-					</li>
+					<div class="pretendant"><li>
+						<img src="<?php echo ($user['User']['photo']); ?>" width="250" height="350"  />
+					</li></div>
+					<li><div class="nompretendant"><?php echo $user['User']['username'];?></div></li>
+					
 				<?php endforeach ?>
 			</ul>
 		</div>

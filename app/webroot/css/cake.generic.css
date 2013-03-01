@@ -74,6 +74,11 @@ body {
 	width:76%;
 	border-left:1px solid #000;
 	padding:10px 2%;
+
+}
+
+.boardgame ul li  {
+	list-style:none;
 }
 
 
@@ -107,10 +112,31 @@ body {
 	margin-top:50px;
 }
 
+.profile {
+	float:left;
+	width:16%;
+	padding:10px 1.5%;
+}
+
 #identite {
 	display:inline-block;
 	vertical-align: top;
 }
+
+.pretendant {
+	width:250px;
+	height:350px;
+	display: inline-block;
+}
+
+.nompretendant {
+	display: inline-block;
+}
+
+.pretendant img {
+	margin-left:-12px;
+}
+
 
 #action {
 	display: inline-block;
@@ -157,6 +183,14 @@ a {
 	width:50%;
 }
  
+
+.pretendant {
+	border: 1px solid black;
+	margin:10px;
+}
+
+
+
 a:hover {
 	color: #367889;
 }
@@ -909,9 +943,7 @@ pre {
 
 
 
-#cagnotte {
-	
-}
+
 
 .coeurs p {
 	text-align: center;
@@ -951,3 +983,4 @@ pre {
 #description {
 	margin-top:50px;
 }
+
