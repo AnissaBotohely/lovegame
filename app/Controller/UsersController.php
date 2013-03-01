@@ -8,10 +8,6 @@ App::uses('AppController', 'Controller');
 class UsersController extends AppController {
 
 
-	public function home() {
-
-	}
-
 	/**
 	* beforeFilter
 	*
@@ -77,11 +73,6 @@ class UsersController extends AppController {
 		$this->redirect('/');
 	}
 	
-
-
-
-
-
 
 
 /**
@@ -281,11 +272,12 @@ class UsersController extends AppController {
 	}
 
 /**
- * search listing membres
- *
+ * home listing membres
+ * displaying my info
+ * @author: pierre, anouch, gasp
  */
 
-	public function search() {
+	public function home() {
 		$autregenre = $this->Auth->user('genre_id');
 			if($this->Auth->user('genre_id') == 1) {
 				$autregenre = 2;
