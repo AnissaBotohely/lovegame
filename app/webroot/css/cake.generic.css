@@ -745,6 +745,22 @@ pre {
 }
 
 /** Code perso **/
+
+
+#home {
+	text-align: center;
+}
+
+#home h1 {
+	font-size:45px;
+}
+
+#connexion {
+	border: 2px solid black;
+	margin:0 auto;
+	width:50%;
+}
+
 .profile {
 	float:left;
 	width:16%;
