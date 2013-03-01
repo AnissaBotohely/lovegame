@@ -315,18 +315,18 @@ if ($user['orientation_id'] && $user['orientation_id']==1) {
 	}
 
 
-
-function age() {
-
-	$age = date('Y') - date('Y', strtotime($user['naissance']));
-
-	if (date('md') < date('md', strtotime($user['naissance']))) {
-
-	return $age - 1;
-
-	}
-
-	$this->set('age', $age);
+	/**
+	 * get age
+	 *
+	 * @return void
+	 * @author anouch
+	 */
+	function age() {
+		$age = date('Y') - date('Y', strtotime($user['naissance']));
+		if (date('md') < date('md', strtotime($user['naissance']))) {
+			return $age - 1;
+		}
+		$this->set('age', $age);
 
 	}
 
