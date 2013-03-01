@@ -68,9 +68,9 @@ CREATE TABLE `messages` (
   `contenu` text,
   `dest_id` int(11) DEFAULT NULL,
   `exp_id` int(11) DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Contenu de la table `messages`
