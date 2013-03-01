@@ -45,8 +45,11 @@ class AppController extends Controller {
 			if (isset($this->params['prefix']) && $this->params['prefix'] == 'admin') {
 				$this->layout = 'admin';
 			}
+
 			$this->Auth->allow('index','view','home');
 			if ($this->Auth->loggedIn()) {
+				//Autorise l'acces aux pages index/ view à tout le monde sauf aux visiteurs (elyany)
+				$this->Auth->allow('index','view');
 				$this->set('me',$this->Auth->user());
 			}
 			else{

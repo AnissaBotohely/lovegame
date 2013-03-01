@@ -39,25 +39,47 @@
 	<div id="container">
 		<div id="header">
 			<h1>lovegame</h1>
-			<div class="username">
-				<?php if ($me['id']>0): ?> 
-					<?php echo $this->Html->link($me['username'],array('controller'=>'users','action'=>'view',$me['id'])) ?>
-				<?php endif; ?>
+
+			<div class="new-user">
+				<?php echo $this->Html->link(__('Inscription'), array('controller' => 'users', 'action' => 'add')); ?>
 			</div>
-			<?php if ($me['id']>0): ?> 
-				<div class="login">
+			
+				<?php if ($me['id']>0): ?> 
+			<div class="login">
 					<?php echo $this->html->link('Deconnexion','/users/logout') ?>
-				</div>
-			<?php else: ?>
-				<div class="logout">
-					<?php echo $this->html->link('Connexion','/users/login') ?>
-				</div>
-			<?php endif; ?>
-				<div class="new-user">
-			<?php echo $this->Html->link(__('Inscription'), array('controller' => 'users', 'action' => 'add')); ?>
+			</div>
+				<?php else: ?>
+			<div class="logout">
+				<?php echo $this->html->link('Connexion','/users/login') ?>
+			</div>
+				<?php endif; ?>
+				<div class="username">
+					Bienvenue <?php echo $me['username']?>
 				</div>
 			
+					<?php if ($me['id']>0): ?> 
+						
+						
+						
+<!--Redirection menu "mon plateau de jeu" vers la page users/view/id
+author elyany-->
+						
+				<div class="profil">
+					<?php echo $this->html->link('Mon plateau de jeu', array('controller' => 'users', 'action' => 'view', $me['id'])) ?>
+				</div>
+				<div class="edit_profil">
+					<?php echo $this->html->link('Editer mon profil', array('controller' => 'users', 'action' => 'edit', $me['id']))?>
+				</div>
+				
+				<div class="messagerie">
+					<?php echo $this->html->link('Voir mes messages', array('controller' => 'users', 'action' => 'index'))?>
+				</div>
+			<?php else: ?>
+		<?php endif; ?>	
 		</div>
+		
+	</div>
+		
 		<div id="content">
 			
 			<?php echo $this->Session->flash(); ?>
@@ -74,6 +96,6 @@
 			?>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<!--<?php echo $this->element('sql_dump'); ?>-->
 </body>
 </html>

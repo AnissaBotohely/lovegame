@@ -39,7 +39,6 @@ class UsersController extends AppController {
 		}
 		
 		if($this->action == 'edit'){
-			//users/edit/6 id is 6
 			$id = $this->request->params['pass'][0];
 			if(isset($user['id']) && $user['id'] == $id){
 				return true;
@@ -48,9 +47,11 @@ class UsersController extends AppController {
 				$this->Session->setFlash('access denied');
 				return false;
 			}
-		}
+		}	
 		return parent::isAuthorized($user);
 	}
+	
+	
 	
 	/**
 	* login and logout
@@ -74,6 +75,14 @@ class UsersController extends AppController {
 		$this->Session->setFlash("Vous êtes maintenant déconnecté");
 		$this->redirect('/');
 	}
+	
+
+
+
+
+
+
+
 /**
  * index method
  *
@@ -107,6 +116,8 @@ class UsersController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->User->create();
+//ajout de 10 coeurs à l'inscription (elyany)
+			$this->request->data['User']['coeur']=10;
 			
 		$this->request->data['User']['group_id']=2;	
 			if ($this->User->save($this->request->data)) {
@@ -145,6 +156,13 @@ class UsersController extends AppController {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 			$this->request->data = $this->User->find('first', $options);
 		}
+		
+		$orientations = $this->User->Orientation->find('list');
+		$this->set(compact('orientations'));
+		
+		$genres = $this->User->Genre->find('list');
+		$this->set(compact('genres'));
+		
 	}
 
 /**
