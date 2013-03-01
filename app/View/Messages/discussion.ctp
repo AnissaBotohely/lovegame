@@ -6,7 +6,7 @@
 	<dt><?php echo h($message['Message']['contenu']); ?>
 	&nbsp;</dt>
 	<dd>
-	<i><?php echo h($message['Message']['date']); ?></i>
+	<i><?php echo h($message['Message']['created']); ?></i>
 	</dd>
 	</dl>
 	<br />
@@ -16,7 +16,7 @@
 	<fieldset>
 		<legend><?php echo __("Envoyer un message à ".$message['Dest']['username']); ?></legend>
 	<?php
-		echo "il vous reste ".$me['coeur']." cœurs";
+		echo "il vous reste ".$me['coeur']." coeurs";
 		
 		echo $this->Form->input('contenu');
 	?>

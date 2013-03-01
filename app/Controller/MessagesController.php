@@ -36,7 +36,7 @@ class MessagesController extends AppController {
 										)
 						)
 					)),
-		'order' => array('date ASC')
+		'order' => array('Message.created ASC')
 		) );
 
 		$this->set('messages', $orcondition);
@@ -82,7 +82,7 @@ class MessagesController extends AppController {
 			array('dest_id'=> $connectedid),
 			array('exp_id'=> $connectedid)
 			)),
-			'order' => array('Message.date ASC'),
+			'order' => array('Message.created ASC'),
 			'group' => array('exp_id','dest_id')
 			
 
