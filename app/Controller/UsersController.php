@@ -16,6 +16,7 @@ class UsersController extends AppController {
 	parent::beforeFilter();
 		$this->Auth->allow('add');
 		$this->Auth->allow('logout');
+		$this->Auth->allow('search');
 	}
 	
 	public function isAuthorized($user){

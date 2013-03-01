@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
 class MessagesController extends AppController {
 	
 	public function isAuthorized($user){
-		return true
+		return true;
 	}
 	
 	public function index() {
