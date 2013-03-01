@@ -17,14 +17,14 @@ class Message extends AppModel {
  */
 	public $belongsTo = array(
 		'Exp' => array(
-			'className' => 'Exp',
+			'className' => 'User',
 			'foreignKey' => 'exp_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
-		'dest' => array(
-			'className' => 'dest',
+		'Dest' => array(
+			'className' => 'User',
 			'foreignKey' => 'dest_id',
 			'conditions' => '',
 			'fields' => '',

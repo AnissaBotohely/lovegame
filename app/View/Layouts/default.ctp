@@ -44,8 +44,8 @@
 			<div class="new-user">
 				<?php echo $this->Html->link(__('Inscription'), array('controller' => 'users', 'action' => 'add')); ?>
 			</div>
-			
-				<?php if ($me['id']>0): ?> 
+
+			<?php if ($me['id']>0): ?> 
 			<div class="login">
 					<?php echo $this->html->link('Deconnexion','/users/logout') ?>
 			</div>
@@ -53,18 +53,19 @@
 			<div class="logout">
 				<?php echo $this->html->link('Connexion','/users/login') ?>
 			</div>
-				<?php endif; ?>
-				<div class="username">
-					Bienvenue <?php echo $me['username']?>
-				</div>
+			<?php endif; ?>
+			<?php if ($me['id']>0): ?> 
 			
-					<?php if ($me['id']>0): ?> 
-						
-						
-						
+			<div class="username">
+				Bienvenue <?php echo $me['username']?>
+			</div>
+
 <!--Redirection menu "mon plateau de jeu" vers la page users/view/id
 author elyany-->
-						
+				<div class="inbox">
+					<?php echo $this->html->link('Messages','/messages/inbox') ?>
+				</div>
+					
 				<div class="profil">
 					<?php echo $this->html->link('Mon plateau de jeu', array('controller' => 'users', 'action' => 'home')) ?>
 				</div>
@@ -77,6 +78,7 @@ author elyany-->
 				</div>
 			<?php else: ?>
 		<?php endif; ?>	
+
 		</div>
 		
 	</div>
