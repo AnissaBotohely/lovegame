@@ -121,7 +121,7 @@ CREATE TABLE `users` (
   `genre_id` tinyint(1) DEFAULT NULL,
   `message_id` tinyint(1) DEFAULT NULL,
   `group_id` int(11) DEFAULT NULL,
-  `coeur` tinyint(1) DEFAULT NULL,
+  `coeur` int(11) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `update` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
