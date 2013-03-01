@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 
 	 <div class="boardgame">
-=======
 	 <div class="board">
->>>>>>> Css Pages / Home
 
 
 		<h2><?php  echo __('Plateau du jour'); ?></h2>

@@ -62,9 +62,6 @@
 
 <!--Redirection menu "mon plateau de jeu" vers la page users/view/id
 author elyany-->
-				<div class="inbox">
-					<?php echo $this->html->link('Messages','/messages/inbox') ?>
-				</div>
 					
 				<div class="profil">
 					<?php echo $this->html->link('Mon plateau de jeu', array('controller' => 'users', 'action' => 'home')) ?>
@@ -74,7 +71,7 @@ author elyany-->
 				</div>
 				
 				<div class="messagerie">
-					<?php echo $this->html->link('Voir mes messages', array('controller' => 'users', 'action' => 'index'))?>
+					<?php echo $this->html->link('Voir mes messages','/messages/inbox')?>
 				</div>
 			<?php else: ?>
 		<?php endif; ?>	
