@@ -278,15 +278,17 @@ class UsersController extends AppController {
  */
 
 	public function home() {
+		debug($this->Auth->user());
 		$autregenre = $this->Auth->user('genre_id');
 			if($this->Auth->user('genre_id') == 1) {
 				$autregenre = 2;
 			}
-
-			if($this->Auth->user('genre_id') == 2) {
+			else{
 				$autregenre = 1;
 			} 
 
+			// echo 'mon genre:'.$this->Auth->user('genre_id').' autre genre:'.$autregenre;
+			
 
 		/*array('controller' => 'orientations', 'action' => 'view', $user['Orientation']['id'])); 
 		 $specifiquementCeluiCi = $this->Article->find('first', array(
