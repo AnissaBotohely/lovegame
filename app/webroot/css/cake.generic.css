@@ -69,6 +69,64 @@ body {
 
 /*end elyany*/
 
+.boardgame {
+	float:right;
+	width:76%;
+	border-left:1px solid #000;
+	padding:10px 2%;
+}
+
+
+#profil {
+	text-align:center;
+	margin-top:50px;
+}
+
+#identite {
+	display:inline-block;
+	vertical-align: top;
+}
+
+#action {
+	display: inline-block;
+	vertical-align: top;
+	float:right;
+}
+
+#preferences {
+	margin-top:50px;
+}
+
+#description {
+	margin-top:50px;
+}
+
+
+#profil {
+	text-align:center;
+	margin-top:50px;
+}
+
+#identite {
+	display:inline-block;
+	vertical-align: top;
+}
+
+#action {
+	display: inline-block;
+	vertical-align: top;
+	float:right;
+}
+
+#preferences {
+	margin-top:50px;
+}
+
+#description {
+	margin-top:50px;
+}
+
+
 .profile a {
 	color: #895656;
 	text-decoration: none;
