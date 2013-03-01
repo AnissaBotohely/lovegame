@@ -54,15 +54,21 @@ class UploadsController extends AppController {
 
 	function uploadFile() {
 		$file = $this->data['Upload']['file'];
+		$filename = $this->Auth->user('id') .String::uuid().strrchr($file['name'], '.');
+		
 		if ($file['error'] === UPLOAD_ERR_OK) {
-			$id = String::uuid();
-			if (move_uploaded_file($file['tmp_name'], APP.'uploads'.DS.$id .strrchr($file['name'], '.'))) {
+			$moveok = move_uploaded_file(
+				$file['tmp_name'],
+				WWW_ROOT.'files/uploads'.DS.$filename
+			);
+				
+			if ($moveok) {
 				
 			
-				$temporaryVar['Upload']['user_id'] = $id;
+				$temporaryVar['Upload']['user_id'] = $this->Auth->user('id');
 				$this->data=$temporaryVar;
 				
-				$temporaryVar['Upload']['filename'] =  $id .strrchr($file['name'], '.');
+				$temporaryVar['Upload']['filename'] =  $filename;
 				$this->data=$temporaryVar;
 				
 
