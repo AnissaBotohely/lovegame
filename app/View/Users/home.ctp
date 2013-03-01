@@ -1,5 +1,5 @@
 
-	 <div class="board">
+	 <div class="boardgame">
 
 
 		<h2><?php  echo __('Plateau du jour'); ?></h2>

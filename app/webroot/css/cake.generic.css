@@ -833,7 +833,7 @@ pre {
 	padding:10px 1.5%;
 }
 
-.board {
+.boardgame {
 	float:right;
 	width:76%;
 	border-left:1px solid #666;
@@ -857,7 +857,7 @@ pre {
 }
 
 
-#content a {
+.profile a {
 	color:#895656;
 }
 
