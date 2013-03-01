@@ -278,7 +278,6 @@ class UsersController extends AppController {
  */
 
 	public function home() {
-		debug($this->Auth->user());
 		$autregenre = $this->Auth->user('genre_id');
 			if($this->Auth->user('genre_id') == 1) {
 				$autregenre = 2;
