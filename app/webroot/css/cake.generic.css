@@ -66,6 +66,7 @@ body {
 .nbcoeur{
 	
 }
+
 /*end elyany*/
 
 .profile a {
@@ -79,6 +80,25 @@ a {
 	text-decoration: none;
 	font-weight: bold;
 }
+
+#connexion a{
+	color:#000;
+}
+
+#home {
+	text-align: center;
+}
+
+#home h1 {
+	font-size:45px;
+}
+
+#connexion {
+	border: 2px solid black;
+	margin:0 auto;
+	width:50%;
+}
+ 
 a:hover {
 	color: #367889;
 }
@@ -153,6 +173,7 @@ p {
 	padding: 6px 10px;
 	text-align: right;
 }
+
 
 /** containers **/
 div.form,
@@ -813,19 +834,7 @@ pre {
 /** Code perso **/
 
 
-#home {
-	text-align: center;
-}
 
-#home h1 {
-	font-size:45px;
-}
-
-#connexion {
-	border: 2px solid black;
-	margin:0 auto;
-	width:50%;
-}
 
 .profile {
 	float:left;
@@ -836,7 +845,7 @@ pre {
 .boardgame {
 	float:right;
 	width:76%;
-	border-left:1px solid #666;
+	border-left:10px solid #000;
 	padding:10px 2%;
 }
 
