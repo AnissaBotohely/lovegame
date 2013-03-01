@@ -54,6 +54,7 @@
 				<?php echo $this->html->link('Connexion','/users/login') ?>
 			</div>
 			<?php endif; ?>
+
 			<?php if ($me['id']>0): ?> 
 			
 			<div class="username">

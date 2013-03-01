@@ -23,6 +23,7 @@ class UsersController extends AppController {
 		parent::beforeFilter();
 		$this->Auth->allow('add');
 		$this->Auth->allow('logout');
+		$this->Auth->allow('search');
 	}
 	
 	public function isAuthorized($user){
@@ -284,7 +285,7 @@ class UsersController extends AppController {
  *
  */
 
-public function search() {
+	public function search() {
 		$autregenre = $this->Auth->user('genre_id');
 			if($this->Auth->user('genre_id') == 1) {
 				$autregenre = 2;
@@ -295,15 +296,24 @@ public function search() {
 			} 
 
 
+		/*array('controller' => 'orientations', 'action' => 'view', $user['Orientation']['id'])); 
+		 $specifiquementCeluiCi = $this->Article->find('first', array(
+        'conditions' => array('Article.id' => 1)
+    ));
+
+if ($user['orientation_id'] && $user['orientation_id']==1) {
+				return true;	
+			}
+		*/
+
 		$user = $this->User->find('all',array(
 			'conditions' => array('genre_id'=>$autregenre)
 		));
 
 
-
- 		$this->set('users', user);
-
+		$this->set('users', $user);
 	}
+
 
 
 function age() {
@@ -316,10 +326,9 @@ function age() {
 
 	}
 
-	$this->set('age', age);
+	$this->set('age', $age);
 
 	}
-
 
 
 }
