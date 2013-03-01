@@ -17,10 +17,6 @@
 	</div>
 
 
- 
-
-
-
 
 
 
@@ -53,8 +49,6 @@
 
 
 			<?php echo $this->Html->link(__('Voir mon profil'), array('action' => 'view', $me['id'])); ?> 
-
-			
 
 
 </div>

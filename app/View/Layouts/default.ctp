@@ -66,7 +66,7 @@
 author elyany-->
 						
 				<div class="profil">
-					<?php echo $this->html->link('Mon plateau de jeu', array('controller' => 'users', 'action' => 'view', $me['id'])) ?>
+					<?php echo $this->html->link('Mon plateau de jeu', array('controller' => 'users', 'action' => 'home')) ?>
 				</div>
 				<div class="edit_profil">
 					<?php echo $this->html->link('Editer mon profil', array('controller' => 'users', 'action' => 'edit', $me['id']))?>
