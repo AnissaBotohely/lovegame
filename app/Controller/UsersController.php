@@ -7,6 +7,11 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
+
+	public function home() {
+
+	}
+
 	/**
 	* beforeFilter
 	*
@@ -255,4 +260,48 @@ class UsersController extends AppController {
 		$this->Session->setFlash(__('User was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+
+/**
+ * search listing membres
+ *
+ */
+
+public function search() {
+		$autregenre = $this->Auth->user('genre_id');
+			if($this->Auth->user('genre_id') == 1) {
+				$autregenre = 2;
+			}
+
+			if($this->Auth->user('genre_id') == 2) {
+				$autregenre = 1;
+			} 
+
+
+		$user = $this->User->find('all',array(
+			'conditions' => array('genre_id'=>$autregenre)
+		));
+
+
+
+ 		$this->set('users', user);
+
+	}
+
+
+function age() {
+
+	$age = date('Y') - date('Y', strtotime($user['naissance']));
+
+	if (date('md') < date('md', strtotime($user['naissance']))) {
+
+	return $age - 1;
+
+	}
+
+	$this->set('age', age);
+
+	}
+
+
+
 }

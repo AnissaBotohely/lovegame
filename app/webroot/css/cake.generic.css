@@ -16,6 +16,8 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+
+
 * {
 	margin:0;
 	padding:0;
@@ -740,4 +742,79 @@ pre {
 /** Elements **/
 #url-rewriting-warning {
 	display:none;
+}
+
+/** Code perso **/
+
+
+#home {
+	text-align: center;
+}
+
+#home h1 {
+	font-size:45px;
+}
+
+#connexion {
+	border: 2px solid black;
+	margin:0 auto;
+	width:50%;
+}
+
+.profile {
+	float:left;
+	width:16%;
+	padding:10px 1.5%;
+}
+
+.board {
+	float:right;
+	width:76%;
+	border-left:1px solid #666;
+	padding:10px 2%;
+}
+
+
+
+#cagnotte {
+	
+}
+
+.coeurs p {
+	text-align: center;
+	
+}
+
+.lettres p {
+	text-align: center;
+	
+}
+
+
+#content a {
+	color:#895656;
+}
+
+#profil {
+	text-align:center;
+	margin-top:50px;
+}
+
+#identite {
+	display:inline-block;
+	vertical-align: top;
+}
+
+#action {
+	display: inline-block;
+	vertical-align: top;
+	float:right;
+}
+
+#preferences {
+	margin-top:50px;
+}
+
+#description {
+	margin-top:50px;
 }
