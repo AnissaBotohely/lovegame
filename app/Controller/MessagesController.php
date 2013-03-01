@@ -102,16 +102,27 @@ class MessagesController extends AppController {
 	}
 
 	public function add($id) {
-
 		if ($this->request->is('post')) {
 			$this->Message->create();
-			//$this->request->data['Message']['dest_id']=$this->request->data['User']['group_id'];
-			$this->request->data['Message']['date']=date('Y-m-d H:i:s');
 			$this->request->data['Message']['exp_id']=$this->Auth->user('id');
-			$this->request->data['Message']['dest_id']=$id;
-			$this->request->data['Message']['coeur']=$this->Auth->user('coeur')-1;
-			debug($this->request->data());
-			die();
+			$this->request->data['Message']['dest_id']=$this->request->params['pass'][0];
+			
+			$this->loadModel('User');
+			$this->User->recursive = -1;
+			
+			// suppressing 1 "coeur" from sender
+			$sender = $this->User->find('first', array(
+				'conditions'=>array('User.id'=>$this->Auth->user('id'))
+			));
+
+			$this->User->id = $this->Auth->user('id');
+			$this->User->save(array(
+				'User'=>array(
+					'id'=>$this->Auth->user('id'),
+					'coeur' => ($sender['User']['coeur'] - 1)
+				)
+			));
+
 			if ($this->Message->save($this->request->data)) {
 				$this->Session->setFlash(__('Votre message a bien été envoyé'));
 				//$this->redirect('messages/discussion/'.));
