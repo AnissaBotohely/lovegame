@@ -65,23 +65,7 @@ class Upload extends AppModel {
 		)
 	);
 
-	var $hasAndBelongsToMany = array(
-		'SharedUser' => array(
-			'className' => 'User',
-			'joinTable' => 'uploads_users',
-			'foreignKey' => 'upload_id',
-			'associationForeignKey' => 'user_id',
-			'unique' => true,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
-		)
-	);
+
 
 }
 ?>
